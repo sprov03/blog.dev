@@ -54,8 +54,8 @@
 		  <option value="" selected="true" value="" disabled >Type Of Object</option>
 		  <option value="backdropObj">Backdrop</option>
 		  <option value="backgroundObj">Background</option>
-		  <option value="player">Player</option>
-		  <option value="turtle">Turtle</option>
+		  {{-- <option value="player">Player</option>
+		  <option value="turtle">Turtle</option> --}}
 		  <option value="enemyObj">Gunner</option>
 		</select>
 

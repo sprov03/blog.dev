@@ -84,9 +84,9 @@ class GamesController extends \BaseController {
 
 	public function validateLevel()
 	{
-		// $handle = fopen(/public/js/testgame.js, 'a');
+		// $handle = fopen('../../public/js/testgame.js', 'w');
 		$lines = explode('*', Input::get('csvString'));
-		
+		// echo Input::get('csvString') . PHP_EOL;
 		//   new gameobject.background(x,y,width,height,'color');
 
 		foreach($lines as $line)
