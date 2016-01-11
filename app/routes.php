@@ -11,27 +11,25 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home');
-});
 
-Route::get('/sayhello/{name?}', function($name = null)
-{
-	$data = array('name' => $name);
-	return View::make('my-first-view')->with($data);
-});
+Route::get('/', 'HomeController@showHome');
 
-Route::get('/rolldice/{quess?}', function($quess = '0') 
-{
-	$message;
-	$rand = mt_rand(1,20);
-	if (strVal($rand) === $quess){
-		$message = 'Right';
-	} else{
-		$message = 'Wrong';
-	}
+Route::get('/contactme', 'HomeController@showContactme');
 
-	$data = array('quess' => $quess,'message' => $message,'rand' => $rand);
-	return View::make('roll-dice')->with($data);
-});
+Route::get('/aboutme', 'HomeController@showAboutme');
+
+Route::get('/projectpage', 'HomeController@showProjectpage');
+
+Route::get('/sayhello/{name?}', 'HomeController@showFirstView');
+
+Route::get('/rolldice/{quess?}', 'HomeController@showRollDice');
+
+
+
+Route::resource('/posts', 'PostsController');
+
+Route::get('/games/play', 'GamesController@play');
+
+Route::post('/games/create/{level}', 'GamesController@validateLevel');
+
+Route::resource('/games', 'GamesController');

@@ -1,0 +1,33 @@
+table{
+	margin-top:26px;
+	color:#ddd;
+}
+main table tr>:nth-child(1){
+	vertical-align:middle;
+	text-align:center;
+	font-size:30px;
+}
+main table tr th:nth-child(1){
+	font-size:30px;
+}
+main table tr th:nth-child(2){
+	font-size:30px;
+}
+main table tr>:nth-child(2){
+	vertical-align:middle;
+}
+main table tr>:nth-child(2) p{
+	margin:3px;
+}
+main form>:nth-child(8) a{
+	background:#ddd;
+	color:black;
+	border: 2px solid black;
+	border-radius:5px;
+	font-size:18px;
+	height:46px;
+	width:126px;
+}
+#contact_me_form{
+	margin-bottom:15px;
+}
