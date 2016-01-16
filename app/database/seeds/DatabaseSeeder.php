@@ -11,8 +11,21 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('PostTableSeeder');
+		// DB::table('ObjectDataTableSeeder')->delete();
+		// DB::table('LevelTableSeeder')->delete();
+		// DB::table('GameTableSeeder')->delete();
+		// DB::table('VersionTableSeeder')->delete();
+		// DB::table('CommentTableSeeder')->delete();
+		// DB::table('PostTableSeeder')->delete();
+		// DB::table('UserTableSeeder')->delete();
+
 		$this->call('UserTableSeeder');
+		$this->call('PostTableSeeder');
+		$this->call('CommentTableSeeder');
+		$this->call('VersionTableSeeder');
+		$this->call('GameTableSeeder');
+		$this->call('LevelTableSeeder');
+		$this->call('CallTableSeeder');
 	}
 
 }

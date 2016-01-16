@@ -1,17 +1,4 @@
-//document.addEventListener( 'DOMContentLoaded', function () {
-
-
-
-
-
-var deltaTimePassed ;
-var startingTime;
-var lastTime;
-var gameTime;
-var baseTime = 16.674;
-var time = deltaTimePassed / baseTime;
-var timeSqr = Math.pow(time,2);
-
+document.addEventListener( 'DOMContentLoaded', function () {
 
 
 // main visibility API function 
@@ -39,6 +26,19 @@ var vis = (function(){
 
 "use strict";
 
+
+
+
+
+var deltaTimePassed ;
+var startingTime;
+var lastTime;
+var gameTime;
+var baseTime = 16.674;
+var time = deltaTimePassed / baseTime;
+var timeSqr = Math.pow(time,2);
+var counter = 0;
+
 // check if current tab is active or not
 vis(function(){
                     
@@ -56,9 +56,6 @@ vis(function(){
 
 
 
-
-
-var counter = 0;
 
     //*************************  Key Events  *************************\\
 
@@ -142,6 +139,7 @@ var counter = 0;
  // ********************  Controller listeners  ************************\\
 
 var buttonFlag = false;
+
 function handleStart(evt) {
   evt.preventDefault();
   var el = document.getElementById("canvas");
@@ -171,6 +169,11 @@ function handleStart(evt) {
   }
 }
 
+/*
+ *  Prevent Default()
+ *  
+ *  Push the touch identifier onto the ongoingTouches array
+ */
 function handleEnd(evt) {
 
   evt.preventDefault();
@@ -931,11 +934,7 @@ function handleEnd(evt) {
             lastTime = currentTime;
             gameTime = currentTime;
             time = deltaTimePassed / baseTime;
-            timeSqr = Math.pow(time,2);
-
-
-            // document.getElementById('header').textContent = deltaTimePassed;
-  
+            timeSqr = Math.pow(time,2);  
 
             gameObject.backdrops.forEach(function (element) {
                
@@ -1025,26 +1024,29 @@ function handleEnd(evt) {
     gameObject.activeObj = square;
     gameObject.collisionCheckArray.push(square);
 
-    // ground
-
     var fell = new gameObject.backgroundObj(-50,110,2000,50,'white');
     fell.type = 'fell';
 
-    var endOfLevel = new gameObject.backgroundObj(1800,0,10,100,'white');
+    var endOfLevel = new gameObject.backgroundObj(560,0,10,100,'white');
     endOfLevel.type = 'won';
+
+    var lvlId = document.getElementById('level_id').value;
+
+    $.get("/games/levels/" + lvlId).done(function(data) {
+        console.log(data);
+        buildLevel(data);
+    });
+
+    function buildLevel(data){
+        data.forEach(function (piece){
+            new gameObject[piece.function](piece.x,piece.y,piece.width,piece.height,piece.color);
+        });
+        gameObject.paintCanvas();
+    }
 
     // new gameObject.backgroundObj         (400,70,15 ,4 ,'black');
     // var gunner2 = new gameObject.enemyObj(407,50,6  ,6 ,'gray' );
 
-    // new gameObject.backdropObj (0 ,0 ,700 ,100  ,'black');
+    // new gameObject.backdropObj          (0   ,0  ,700,100,'black');
     // var gunner = new gameObject.enemyObj(307 ,50 ,6  ,6  ,'gray' );
-
-
-
-
-    
-
-
-    gameObject.paintCanvas();
-
-//}, false );//document ready function
+}, false );//document ready function

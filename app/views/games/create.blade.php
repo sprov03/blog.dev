@@ -2,9 +2,6 @@
 
 @section('top-script')
 	<style type="text/css">
-	.center{
-		text-align: center;
-	}
 	.inlineSelect{
 		margin:20px;
 	}
@@ -25,7 +22,7 @@
 
 	<div class="row form-inline inlineSelect center">
 		<select class="form-control">
-		  <option value="">Version 1</option>
+		  <option value="First version">Version 1</option>
 		  <option value="">Version 2</option>
 		  <option value="">Version 3</option>
 		  <option value="">Version 4</option>
@@ -33,11 +30,19 @@
 		</select>
 
 		<select class="form-control">
-		  <option value="mario">Mario</option>
+		  <option value="First game">Mario</option>
 		  <option value="">Tetris</option>
 		  <option value="">Luigie</option>
 		  <option value="">Dirt Bike Extream</option>
 		  <option value="">Awsome Dude!!</option>
+		</select>
+
+		<select id="level" class="form-control">
+		  <option value="1">1</option>
+		  <option value="2">2</option>
+		  <option value="3">3</option>
+		  <option value="4">4</option>
+		  <option value="5">5</option>
 		</select>
 
 		<div class="form-group">
@@ -100,12 +105,18 @@
 
 
 
-	<form id="csvForm" action="{{{ action('GamesController@validateLevel') }}}" method='POST'>
+	<form id="csvForm" action="{{{ action('GamesController@store') }}}" method='POST'>
+		
+		{{ Form::token() }}
+
+		<input hidden id="level_id" name="level_id" value="1">
+
 		<input id="csvString" name="csvString" value="" hidden>
-		<div class="form-inline">
-			<a id="nextObj" class="btn btn-primary">Next Object</a>
-			<button id="submit" type="submit" class="btn btn-primary">Create Level</button>
+		<div class="form-inline center">
+			<a id="nextObj" class="btn btn-default">Next Object</a>
+			<button id="submit" type="submit" class="btn btn-default">Create Level</button>
 		</div>
+		
 	</form>
 
 
@@ -227,6 +238,10 @@
 		redraw();
 	});
 
+	$('#level').change(function() {
+		$('#level_id').val($("#level").val());
+	});
+
 	$( "#nextObj" ).click(function() {
 
 		var string = ($("#csvString").val() === '') ? '' : $("#csvString").val() + '*';
@@ -315,8 +330,6 @@
 		redraw();
     }
 }
-
-
 </script>
 @stop
 

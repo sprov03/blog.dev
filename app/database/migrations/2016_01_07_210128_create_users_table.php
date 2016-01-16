@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration {
 			$table->date('birthday'        )->nullable();
 			$table->string('phone_number', 30)->nullable();
 			$table->string('zipcode', 30);
+			$table->rememberToken();
 
 			$table->timestamps();
 		});

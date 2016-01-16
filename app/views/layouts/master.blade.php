@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 
-		<title>Shawn Pivonka Resume</title>
+		<title>Shawn Pivonka Gaming Blog</title>
 
 
 
@@ -19,16 +19,6 @@
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 		<script src="/js/bootstrap.min.js"></script>
-		{{-- <link> --}}
-
-
-
-
-
-
-
-
-		{{-- meta data --}}
 
 
 
@@ -38,6 +28,13 @@
 	<body>
 		@include('partials.navbar')
 		<main id="main" class="container">
+
+			@if (Session::has('successMessage'))
+			    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+			@endif
+			@if (Session::has('errorMessage'))
+			    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+			@endif
 
 
 			@yield('content')  {{-- is a placeholder --}}

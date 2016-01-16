@@ -15,6 +15,56 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function test()
+	{
+		// $query = Post::with('user');
+
+		// $query->whereHas('user',function($q){
+		// 	$q->where('id','=',1);
+		// });
+
+		// $posts = Post::whereHas('user', function($q)
+		// {
+		//     $q->where('user_id', '=', 1);
+
+		// })->get()[0]->user->user_name;
+
+		// $l = Level::with('calls');
+		// $l->whereHas('calls',function($q) {
+		// 	$q->where('level_id', 1);
+		// })->get();
+		// $info = $l;
+		// foreach ($info as $key => $value) {
+		// 	# code...
+		// }
+
+		// $l = Level::with('calls')->find(1);
+		// $l->calls->were('level_id',$l->id)->get();
+
+		// $l->whereHas('calls',function($q) {
+		// 	$q->where('level_id', 1);
+		// });
+		
+		// $l = Level::find(1);
+		// $calls = $l->call;
+		// foreach ($calls as $call) {
+			// echo $calls->id . "<br>";
+		// }
+
+		$query = Level::with('calls');
+		$query->whereHas('calls',function($q){
+			$q->where('level_id', 1);
+		});
+		$calls = $query->get();
+
+		foreach ($calls as $call) {
+			echo $call;
+		}
+
+		// echo $calls[0]->x;
+		dd();
+	}
+
 	public function showHome()
 	{
 		return View::make('home');
@@ -55,4 +105,28 @@ class HomeController extends BaseController {
 		return View::make('roll-dice')->with($data);		
 	}
 
+	public function getLogin()
+	{
+		
+		return View::make('login');
+	}
+
+	public function postLogin()
+	{
+		$email = Input::get('email');
+		$password = Input::get('password');
+
+		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
+		    return Redirect::intended('/');
+		} else {
+			Session::flash('errorMessage' , 'invalid username or password');
+		    return Redirect::back();
+		}
+	}
+
+	public function getLogout()
+	{
+		Auth::logout();
+		return Redirect::action('HomeController@showHome');
+	}
 }

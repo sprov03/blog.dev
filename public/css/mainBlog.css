@@ -1,29 +1,91 @@
+/*
+ *	Fonts
+ */
+@font-face {
+    font-family: arcade;
+    src: url(/fonts/ARCADECLASSIC.TTF);
+}
+
+
+/* 
+ *	Nav. Bar Css
+ */
+#search{
+	margin-top: 10px;
+}
+#login_navbar{
+	font-size: 1.5em;
+}
+#create_navbar{
+	font-size: 1.5em;
+}
+
+
+/*
+ *	Universal Classes
+ */
+.radius{
+	border-radius: 15px;
+}
+.center{
+	text-align: center;
+}
+.left{
+	text-align: left;
+}
+.right{
+	text-align: right;
+}
+.stylenone{
+	list-style-type: none;
+}
+
+
+/*
+ *	Universal tags
+ */
 body{
     background-image: url("../img/dark_embroidery.png");
 	color:#ddd;
 }
 h1{
-	font-size: 40px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom:30px;
+	color: #ccc;
+	font-size: 5em;
+	word-spacing: 10px;
+	margin: 10px 0px 30px 0px;
+	text-align: center;
 }
-.btn-primary a:hover{
-	border:solid 2px #ccc;
-	background:#ddd;
-	color:black;
+section{
+	margin: 30px 0px;
 }
-.btn-primary:hover{
-	border:solid 2px #ccc;
-	background:#ddd;
-	color:black;
+
+
+
+/*
+ *	Universal Anchor Tags
+ */
+a{
+	color:#ccc;
+	text-decoration: none;
 }
-.btn-primary{
-	background:#ddd;
-	color:black;
-	border: 2px solid black;
-	border-radius:5px;
-	font-size:18px;
-	height:46px;
-	width:126px;
+a:link {
+    color: #ccc;
 }
+
+a:visited {
+    color: #ccc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    background: transparent;
+    text-decoration: none;
+}
+
+a:active {
+    color: #fff;
+}
+
+
+

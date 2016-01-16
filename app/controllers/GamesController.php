@@ -9,7 +9,7 @@ class GamesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('games.show');
 	}
 
 
@@ -31,7 +31,52 @@ class GamesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// $validator = new Validator::make(Input::all(), ObjectsData::$rules);
+
+		// if( $validator->fails())
+		// {
+		// 	return Redirect::back()->withInput()->withErrors($validator);
+		// } else {
+			// $oldData = ObjectsData::were('level_id', 1)->get();
+			// dd($oldData);
+
+			$lvl = new Level;
+			$lvl->game_id = 1;
+			$lvl->level_name = 'Test Levels';
+			$lvl->save();
+
+			$oldData = Call::where('level_id', $lvl->id)->get();
+
+			foreach($oldData as $old)
+			{
+				$old->destroy($old->id);
+			}
+
+
+			$lines = explode('*', Input::get('csvString'));
+
+			foreach($lines as $line)
+			{
+				$data = explode(',', $line);
+
+				$submit = new Call;
+				$submit->level_id = $lvl->id;
+				$submit->function = $data[0];
+				$submit->x = $data[1];
+				$submit->y = $data[2];
+				$submit->width = $data[3];
+				$submit->height = $data[4];
+				$submit->color = $data[5];
+
+				$submit->save();
+			}
+			if ($submit)
+			{
+				return Redirect::action('GamesController@show', $lvl->id);
+			} else {
+				return Redirect::action('GamesController@create')->withInput();
+			}
+		// }
 	}
 
 
@@ -43,7 +88,14 @@ class GamesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+
+		$level = Level::find($id);
+
+		if(!$level){
+			Session::flash('errorMessage', 'This level dose not exits');
+			return $this->index();
+		}
+		return View::make('games.show')->with('level',$level);
 	}
 
 
@@ -81,35 +133,4 @@ class GamesController extends \BaseController {
 	{
 		//
 	}
-
-	public function validateLevel()
-	{
-		// $handle = fopen('../../public/js/testgame.js', 'w');
-		$lines = explode('*', Input::get('csvString'));
-		// echo Input::get('csvString') . PHP_EOL;
-		//   new gameobject.background(x,y,width,height,'color');
-
-		foreach($lines as $line)
-		{
-			$data = explode(',', $line);
-			$JavaScript = "new gameObject.{$data[0]}({$data[1]},{$data[2]},{$data[3]},{$data[4]},'{$data[5]}');";
-			echo $JavaScript . "<br>";
-			// $fwrite($handle, $JavaScript . PHP_EOL);
-
-
-
-		}
-
-		// fclose($handle);
-		// dd($_POST);
-		die();
-	}
-
-	public function play()
-	{
-		return View::make('games.play') ;
-	}
-
-
-
 }

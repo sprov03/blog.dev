@@ -11,25 +11,46 @@
 |
 */
 
-
+/*
+ *	home
+ */
+Route::get('/test', 'HomeController@test');
+Route::get('/login', 'HomeController@getLogin');
+Route::post('/login', 'HomeController@postLogin');
+Route::get('/logout', 'HomeController@getLogout');
 Route::get('/', 'HomeController@showHome');
 
-Route::get('/contactme', 'HomeController@showContactme');
-
-Route::get('/aboutme', 'HomeController@showAboutme');
-
-Route::get('/projectpage', 'HomeController@showProjectpage');
-
-Route::get('/sayhello/{name?}', 'HomeController@showFirstView');
-
-Route::get('/rolldice/{quess?}', 'HomeController@showRollDice');
-
-
-
+/*
+ *	posts
+ */
+Route::get('/posts/title/{title}', "PostsController@findTitle");
 Route::resource('/posts', 'PostsController');
 
-Route::get('/games/play', 'GamesController@play');
+/*
+ *	levels
+ */
+Route::resource('/games/levels', 'LevelsController');
 
-Route::post('/games/create/{level}', 'GamesController@validateLevel');
-
+/*
+ *	games
+ */
+// Route::get('/games/level/{level}', 'GamesController@getLevel');
 Route::resource('/games', 'GamesController');
+
+/*
+ *	aboutme
+ */
+Route::get('/aboutme/contactme', 'HomeController@showContactme');
+Route::get('/aboutme', 'HomeController@showAboutme');
+
+/*
+ *	tags
+ */
+Route::resource('tags', 'TagsController');
+
+/*
+ *	Practice Routes
+ */
+Route::get('/projectpage', 'HomeController@showProjectpage');
+Route::get('/sayhello/{name?}', 'HomeController@showFirstView');
+Route::get('/rolldice/{quess?}', 'HomeController@showRollDice');

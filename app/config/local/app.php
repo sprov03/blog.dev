@@ -14,5 +14,8 @@ return array(
 	*/
 
 	'debug' => true,
+	'providers' => append_config(['Barryvdh\Debugbar\ServiceProvider']),
+	'providers' => append_config(['Way\Generators\GeneratorsServiceProvider']),
 
 );
+
