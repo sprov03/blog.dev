@@ -14,7 +14,10 @@
 /*
  *	home
  */
+Route::get('/fbtest', 'HomeController@fbtest');
 Route::get('/test', 'HomeController@test');
+Route::post('/testget','HomeController@testget');
+Route::get('/login/users', 'HomeController@login');
 Route::get('/login', 'HomeController@getLogin');
 Route::post('/login', 'HomeController@postLogin');
 Route::get('/logout', 'HomeController@getLogout');

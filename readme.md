@@ -1,6 +1,6 @@
 ## Laravel PHP Framework
 
-This is my blog written in PHP, JS, and Laravel.
+This is my capstone project written in PHP, JS, jQuery, Vue, & Laravel.
 
 ## Getting Started
 

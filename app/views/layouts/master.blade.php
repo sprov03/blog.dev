@@ -20,9 +20,6 @@
 
 		<script src="/js/bootstrap.min.js"></script>
 
-
-
-
 		@yield('top-script')
 	</head>
 	<body>

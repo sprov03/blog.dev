@@ -14,5 +14,8 @@ return array(
     'USER_FIRST_NAME' => '',
     'USER_BIRTHDATE' => '',
     'USER_PHONE_NUMBER' => '',
-  	'USER_ZIPCODE' => ''  
+  	'USER_ZIPCODE' => '',
+
+    'app-secret' => '',
+    'app-id' =>''
 );

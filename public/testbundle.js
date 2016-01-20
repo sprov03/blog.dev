@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module '/Users/shawnpivonka/vagrant-lamp/sites/blog.dev/public/testvue.js' from '/Users/shawnpivonka/vagrant-lamp/sites/blog.dev/public'");
