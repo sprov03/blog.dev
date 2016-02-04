@@ -18,8 +18,6 @@
 
 	<h1>Create Level</h1>
 
-	<h4>Title by Username</h4>
-
 	<div class="row form-inline inlineSelect center">
 		<select class="form-control">
 		  <option value="First version">Version 1</option>
