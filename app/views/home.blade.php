@@ -38,7 +38,6 @@
 
     <ul class="right stylenone">
       <li class="home_links"><a href="{{{ action('GamesController@show', 3) }}}">Games</a></li>
-      {{{ action('HomeController@showRollDice', array('1')) }}}
       <li class="home_links"><a href="{{{ action('PostsController@index') }}}">Posts<a/></li>
     </ul>
   </section>
