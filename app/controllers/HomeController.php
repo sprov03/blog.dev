@@ -18,17 +18,17 @@ class HomeController extends BaseController {
 	public function fbtest()
 	{
 		$fb = new Facebook\Facebook([
-  'app_id' => $_ENV['app_id'],
-  'app_secret' => Hash::make($_ENV['app-secret']),
-  'default_graph_version' => 'v2.2',
-  ]);
+		  'app_id' => $_ENV['app_id'],
+		  'app_secret' => Hash::make($_ENV['app-secret']),
+		  'default_graph_version' => 'v2.2',
+		  ]);
 
-$helper = $fb->getRedirectLoginHelper();
+		$helper = $fb->getRedirectLoginHelper();
 
-$permissions = ['email']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
+		$permissions = ['email']; // Optional permissions
+		$loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
 
-echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
+		echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
 	}
 
 	public function test()
