@@ -40,7 +40,7 @@
 
 	<h1>Levels</h1>
 
-	@foreach( $levels as $level)
+{{-- 	@foreach( $levels as $level)
 
 
 	<a href="{{{ action('GamesController@show', $level->id) }}}">
@@ -63,7 +63,7 @@
 
 	@endforeach
 
-	{{ $levels->links() }}
+	{{ $levels->links() }} --}}
 
 
 

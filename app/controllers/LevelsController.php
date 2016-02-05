@@ -13,7 +13,7 @@ class LevelsController extends \BaseController {
 		if(!$levels->count() === 0){
 			Session::flash('errorMessage', 'There were no results matching your search.');
 		}
-		return View::make('/games.levels.index')->with('levels',$levels);
+		return View::make('/games/levels.index')->with('levels',$levels);
 	}
 
 
