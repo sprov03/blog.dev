@@ -11,7 +11,7 @@ canvas{
 
 @section('content')
 
-	@include('bread-crumbs.index')
+	@include('/bread-crumbs.index')
 
 	<h1>Test Level</h1>
 
