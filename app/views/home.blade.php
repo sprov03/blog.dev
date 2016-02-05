@@ -37,7 +37,7 @@
     <h1>Let's Make a Game!!</h1>
 
     <ul class="right stylenone">
-      <li class="home_links"><a href="{{{ action('GamesController@index') }}}">Play</a></li>
+      <li class="home_links"><a href="{{{ action('LevelsController@index') }}}">Play</a></li>
       <li class="home_links"><a href="{{{ action('GamesController@create') }}}">Create<a/></li>
     </ul>
   </section>

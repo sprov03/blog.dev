@@ -40,32 +40,30 @@
 
 	<h1>Levels</h1>
 
-<p>index page</p>
-
-{{-- @foreach( $levels as $level) --}}
+	@foreach( $levels as $level)
 
 
-{{-- <a href="{{{ action('GamesController@show', $level->id) }}}">
-	<div class="row show_level">
+	<a href="{{{ action('GamesController@show', $level->id) }}}">
+		<div class="row show_level">
 
-		<div class="row">
-			<h6 class="id">{{{ $level->id }}} By </h6>
+			<div class="row">
+				<h6 class="id">{{{ $level->id }}} By {{{ $level->creator-></h6>
+			</div>
+
+			<div class="row">
+				<p class="level_name">{{{ $level->level_name }}}</p>
+			</div>
+
+			<div class="row right">
+				<span class="created">Created on {{{$level->created_at}}}</span>
+			</div>
+
 		</div>
+	</a>
 
-		<div class="row">
-			<p class="level_name">{{{ $level->level_name }}}</p>
-		</div>
+	@endforeach
 
-		<div class="row right">
-			<span class="created">Created on {{{$level->created_at}}}</span>
-		</div>
-
-	</div>
-</a>
-
-@endforeach
-
-{{ $levels->links() }} --}}
+	{{ $levels->links() }}
 
 
 
