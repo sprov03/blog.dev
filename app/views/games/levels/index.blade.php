@@ -27,6 +27,9 @@
 	margin-top: 30px;
 	font-size: 1em;
 }
+.btn{
+	padding-left:20px;
+}
 
 
 </style>
