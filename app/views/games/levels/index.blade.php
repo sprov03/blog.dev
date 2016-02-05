@@ -71,8 +71,9 @@
 	</a>
 
 	@endforeach
-
-	{{ $levels->links() }}
+	<div class="center">
+		{{ $levels->links() }}
+	</div>
 
 
 
