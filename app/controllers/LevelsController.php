@@ -72,6 +72,7 @@ class LevelsController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		return 'editing a level is extreamy complex, not nearly as easy as editing a post. This feature is in the works';
 		//
 	}
 

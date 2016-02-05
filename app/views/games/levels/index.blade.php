@@ -56,8 +56,12 @@
 			</div>
 			@if(true)
 				<div class="row">
-					<button>edit</button>
-					<button>Delete</button>
+
+					<a href="{{{ action( 'LevelController@update' ) }}}">edit</a>
+
+					{{ Form::open(['action'=>['LevelsController@destroy',$level->id], 'method'=>'DELETE']) }}
+						{{ Form::submit('Delete',['class'=>'btn btn-xs btn-danger'])}}
+					{{ Form::close()}}
 				</div>
 			@endif
 			<div class="row right">
