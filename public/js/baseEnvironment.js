@@ -1047,11 +1047,6 @@ function handleEnd(evt) {
         });
         gameObject.paintCanvas();
     }
-        collisionCheckArray: [],
-        updatedArray: [],
-        backdrops: [],
-
-
 
     function nextLevel(){
 
