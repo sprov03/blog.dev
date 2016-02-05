@@ -898,7 +898,8 @@ function handleEnd(evt) {
             if(!gameObject.levelOver){
                 // new gameObject.backgroundObj(0,0,2000,100,'rgba(50,200,20,.1');
                 // gameObject.levelOver = true;
-                loadLevel();
+                lvlId++;
+                window.location.replace("http://shawnpivonka.com/games/" + lvlId);
             }
         },//levelComplete
 
@@ -1020,7 +1021,6 @@ function handleEnd(evt) {
      *  Commands to run at start of game
      */
 
-    var lvlId = document.getElementById('level_id').value;
 
     var square = new gameObject.playerObj (80,70,7,7,'green','runningMonsterLeft','/img/runningMonster.png','idleMonster','/img/standingMonster.png');
     gameObject.activeObj = square;
@@ -1032,14 +1032,12 @@ function handleEnd(evt) {
     var endOfLevel = new gameObject.backgroundObj(560,0,10,100,'white');
     endOfLevel.type = 'won';
 
+    var lvlId = document.getElementById('level_id').value;
 
-    function loadLevel(){
-
-        $.get("/games/levels/" + lvlId).done(function(data) {
-            // console.log(data);
-            buildLevel(data);
-        });
-    }
+    $.get("/games/levels/" + lvlId).done(function(data) {
+        console.log(data);
+        buildLevel(data);
+    });
 
     function buildLevel(data){
         data.forEach(function (piece){
@@ -1047,20 +1045,6 @@ function handleEnd(evt) {
         });
         gameObject.paintCanvas();
     }
-
-    function nextLevel(){
-
-        lvlId++;
-
-        gameObject.collisionCheckArray = [];
-        gameObject.updatedArray = [];
-        gameObject.backdrops = [];
-
-        gameObject.collisionCheckArray.push(square);
-        loadLevel();
-    }
-
-    loadLevel();
 
     // new gameObject.backgroundObj         (400,70,15 ,4 ,'black');
     // var gunner2 = new gameObject.enemyObj(407,50,6  ,6 ,'gray' );
