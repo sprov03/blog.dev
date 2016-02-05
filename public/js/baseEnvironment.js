@@ -1033,6 +1033,8 @@ function handleEnd(evt) {
 
     var lvlId = document.getElementById('level_id').value;
     var nextLevel = document.getElementById('next_level').value;
+    console.log(lvlId);
+    console.log(nextLevel);
 
     $.get("/games/levels/" + lvlId).done(function(data) {
         buildLevel(data);
