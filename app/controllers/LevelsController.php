@@ -85,14 +85,18 @@ class LevelsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$calls = Call::with('level_id', '=', $id);
-		foreach($calls as $call)
-		{
-			$call->delete();
+		if ( Auth::check() ){
+
+			$calls = Call::with('level_id', '=', $id);
+			foreach($calls as $call)
+			{
+				$call->delete();
+			}
+			$level = Level::find($id);
+			$level->delete();
+			return $this->index();
 		}
-		$level = Level::find($id);
-		$level->delete();
-		return $this->index();
+		return 'you are not authorized to do this';
 	}
 
 
