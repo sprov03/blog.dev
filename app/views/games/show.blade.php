@@ -11,9 +11,7 @@ canvas{
 
 @section('content')
 
-	<a href="{{{ action( 'HomeController@showHome' ) }}}">Home</a>
-	<span>/</span>
-	<a href="{{{ action('LevelsController@index') }}}">Levels</a>
+	@include('bread-crumbs.index')
 
 	<h1>Test Level</h1>
 
