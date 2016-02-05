@@ -86,6 +86,7 @@ class LevelsController extends \BaseController {
 	public function destroy($id)
 	{
 		$level = Level::find($id);
+		dd($level);
 		$level->delete();
 		return $this->index();
 	}
