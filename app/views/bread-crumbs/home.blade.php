@@ -1,0 +1,1 @@
+<a href="{{{ action( 'HomeController@showHome' ) }}}">Home</a>
