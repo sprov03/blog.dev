@@ -36,6 +36,8 @@
 
 @section('content')
 
+	<a href="{{{ action( 'HomeController@showHome' ) }}}">Home</a>
+
 	<h1>Levels</h1>
 
 <p>index page</p>
