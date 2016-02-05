@@ -15,7 +15,7 @@ canvas{
 	<span>/</span>
 	<a href="{{{ action('LevelsController@index') }}}">Levels</a>
 
-	<h1>Level {{{ $level_id }}}</h1>
+	<h1>Level {{{ $level->id }}}</h1>
 
 	<input id="level_id" value="{{{ $level->id }}}"hidden>
 
