@@ -16,6 +16,8 @@
 
 @section('content')
 
+	<a href="{{{ action( 'HomeController@showHome' ) }}}">Home</a>
+
 	<h1>Create Level</h1>
 
 	<div class="row form-inline inlineSelect center">
