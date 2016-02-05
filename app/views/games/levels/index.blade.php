@@ -54,7 +54,12 @@
 			<div class="row">
 				<p class="level_name">{{{ $level->level_name }}}</p>
 			</div>
-
+			@if(true)
+				<div class="row">
+					<button>edit</button>
+					<button>Delete</button>
+				</div>
+			@endif
 			<div class="row right">
 				<span class="created">Created on {{{$level->created_at}}}</span>
 			</div>
