@@ -28,7 +28,7 @@
 	font-size: 1em;
 }
 .btn{
-	padding-left:20px;
+	margin-left:20px;
 }
 
 
