@@ -16,7 +16,7 @@
 
 @section('content')
 
-	<a href="{{{ action( 'HomeController@showHome' ) }}}">Home</a>
+	@include('bread-crumbs.home')
 
 	<h1>Create Level</h1>
 
