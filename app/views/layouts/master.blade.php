@@ -23,7 +23,7 @@
 		@yield('top-script')
 	</head>
 	<body>
-		@include('partials.navbar')
+		{{-- @include('partials.navbar') --}}
 		<main id="main" class="container">
 
 			@if (Session::has('successMessage'))
