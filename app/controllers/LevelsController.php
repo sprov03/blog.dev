@@ -96,6 +96,7 @@ class LevelsController extends \BaseController {
 			$level->delete();
 			return $this->index();
 		}
+		
 		return 'you are not authorized to do this';
 	}
 

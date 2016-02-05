@@ -57,10 +57,8 @@
 			<div class="row">
 				<p class="level_name">{{{ $level->level_name }}}</p>
 			</div>
-			@if(true)
+			@if( Auth::check() )
 				<div class="row">
-
-
 					{{ Form::open(['action'=>['LevelsController@destroy',$level->id], 'method'=>'DELETE']) }}
 						{{ Form::submit('Delete',['class'=>'btn btn-xs btn-danger'])}}
 					{{ Form::close()}}
