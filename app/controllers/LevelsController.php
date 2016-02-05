@@ -85,9 +85,14 @@ class LevelsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
+		$calls = Call::with('level_id', '=', $id);
+		dd($calls);
+		foreach($calls as $call)
+		{
+			$call->delete();
+		}
 		$level = Level::find($id);
 		$level->delete();
-		dd($level);
 		return $this->index();
 	}
 
