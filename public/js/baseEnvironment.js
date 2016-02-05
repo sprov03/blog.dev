@@ -896,8 +896,9 @@ function handleEnd(evt) {
 
         levelComplete: function () {
             if(!gameObject.levelOver){
-                new gameObject.backgroundObj(0,0,2000,100,'rgba(50,200,20,.1');
-                gameObject.levelOver = true;
+                // new gameObject.backgroundObj(0,0,2000,100,'rgba(50,200,20,.1');
+                // gameObject.levelOver = true;
+                loadLevel();
             }
         },//levelComplete
 
@@ -1032,9 +1033,9 @@ function handleEnd(evt) {
     endOfLevel.type = 'won';
 
 
-    function loadLevel(id){
+    function loadLevel(){
 
-        $.get("/games/levels/" + id).done(function(data) {
+        $.get("/games/levels/" + lvlId).done(function(data) {
             // console.log(data);
             buildLevel(data);
         });
@@ -1046,8 +1047,25 @@ function handleEnd(evt) {
         });
         gameObject.paintCanvas();
     }
+        collisionCheckArray: [],
+        updatedArray: [],
+        backdrops: [],
 
-    loadLevel(lvlId);
+
+
+    function nextLevel(){
+
+        lvlId++;
+
+        gameObject.collisionCheckArray = [];
+        gameObject.updatedArray = [];
+        gameObject.backdrops = [];
+
+        gameObject.collisionCheckArray.push(square);
+        loadLevel();
+    }
+
+    loadLevel();
 
     // new gameObject.backgroundObj         (400,70,15 ,4 ,'black');
     // var gunner2 = new gameObject.enemyObj(407,50,6  ,6 ,'gray' );
