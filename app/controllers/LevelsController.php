@@ -47,8 +47,7 @@ class LevelsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$data = Call::where('level_id', '>=', $id)->first();
-		// $data = Call::where('level_id',$id)->get();
+		$data = Call::where('level_id',$id)->get();
 		return Response::json($data);
 	}
 
@@ -87,12 +86,19 @@ class LevelsController extends \BaseController {
 	public function destroy($id)
 	{
 		if ( Auth::check() ){
+             
+            $level = Level::find($id);
+
+            $previous = Level::where('next_level', '=', $level->id)->first();
+            $previous->next_level = $level->next_level;
+            $previous->save();
 
 			$calls = Call::where('level_id', '=', $id)->get();
 			foreach($calls as $call)
 			{
 				$call->delete();
 			}
+
 			$level = Level::find($id);
 			$level->delete();
 			return $this->index();

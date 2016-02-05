@@ -40,17 +40,23 @@ class GamesController extends \BaseController {
 			// $oldData = ObjectsData::were('level_id', 1)->get();
 			// dd($oldData);
 
+			$prev = Level::where('next_level', '=', NULL)->first();
+			
 			$lvl = new Level;
 			$lvl->game_id = 1;
 			$lvl->level_name = Input::get('level_name');
+			$lvl->next_level = null;
 			$lvl->save();
 
-			$oldData = Call::where('level_id', $lvl->id)->get();
+			$prev->next_level = $lvl->id;
+			$prev->save();
 
-			foreach($oldData as $old)
-			{
-				$old->destroy($old->id);
-			}
+			// $oldData = Call::where('level_id', $lvl->id)->get();
+
+			// foreach($oldData as $old)
+			// {
+			// 	$old->destroy($old->id);
+			// }
 
 
 			$lines = explode('*', Input::get('csvString'));

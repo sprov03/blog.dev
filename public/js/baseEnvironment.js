@@ -898,8 +898,7 @@ function handleEnd(evt) {
             if(!gameObject.levelOver){
                 // new gameObject.backgroundObj(0,0,2000,100,'rgba(50,200,20,.1');
                 gameObject.levelOver = true;
-                lvlId++;
-                window.location.replace("http://shawnpivonka.com/games/" + lvlId);
+                window.location.replace("http://shawnpivonka.com/games/" + nextLevel);
             }
         },//levelComplete
 
@@ -1033,9 +1032,9 @@ function handleEnd(evt) {
     endOfLevel.type = 'won';
 
     var lvlId = document.getElementById('level_id').value;
+    var nextLevel = document.getElementById('next_level').value;
 
     $.get("/games/levels/" + lvlId).done(function(data) {
-        console.log(data);
         buildLevel(data);
     });
 
