@@ -1016,9 +1016,10 @@ function handleEnd(evt) {
 
 
     /**
-     *  Files to run at start of game
+     *  Commands to run at start of game
      */
 
+    var lvlId = document.getElementById('level_id').value;
 
     var square = new gameObject.playerObj (80,70,7,7,'green','runningMonsterLeft','/img/runningMonster.png','idleMonster','/img/standingMonster.png');
     gameObject.activeObj = square;
@@ -1030,12 +1031,14 @@ function handleEnd(evt) {
     var endOfLevel = new gameObject.backgroundObj(560,0,10,100,'white');
     endOfLevel.type = 'won';
 
-    var lvlId = document.getElementById('level_id').value;
 
-    $.get("/games/levels/" + lvlId).done(function(data) {
-        console.log(data);
-        buildLevel(data);
-    });
+    function loadLevel(id){
+
+        $.get("/games/levels/" + id).done(function(data) {
+            // console.log(data);
+            buildLevel(data);
+        });
+    }
 
     function buildLevel(data){
         data.forEach(function (piece){
@@ -1043,6 +1046,8 @@ function handleEnd(evt) {
         });
         gameObject.paintCanvas();
     }
+
+    loadLevel(lvlId);
 
     // new gameObject.backgroundObj         (400,70,15 ,4 ,'black');
     // var gunner2 = new gameObject.enemyObj(407,50,6  ,6 ,'gray' );
