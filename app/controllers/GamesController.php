@@ -42,7 +42,7 @@ class GamesController extends \BaseController {
 
 			$lvl = new Level;
 			$lvl->game_id = 1;
-			$lvl->level_name = 'Test Levels';
+			$lvl->level_name = Input::get('level_name');
 			$lvl->save();
 
 			$oldData = Call::where('level_id', $lvl->id)->get();

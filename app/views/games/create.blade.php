@@ -37,6 +37,10 @@
 		  <option value="">Awsome Dude!!</option> --}}
 		</select>
 
+		<input type='text' id="level_name_input">
+
+
+
 {{-- 		<select id="level" class="form-control">
 		  <option value="1">1</option>
 		  <option value="2">2</option>
@@ -108,7 +112,7 @@
 	<form id="csvForm" action="{{{ action('GamesController@store') }}}" method='POST'>
 		
 		{{ Form::token() }}
-
+		<input hidden id="level_name" name="level_name" value="">
 		<input hidden id="level_id" name="level_id" value="1">
 
 		<input id="csvString" name="csvString" value="" hidden>
@@ -287,6 +291,10 @@
 
 	$(document).keydown(function (event){
         processKeyDown(event.keyCode);
+    });
+
+    $('#level_name_input').change(function() {
+    	$('#level_name').val( $('#level_name_input').val() );
     });
 
     function processKeyDown(event){
