@@ -21,31 +21,31 @@
 	<div class="row form-inline inlineSelect center">
 		<select class="form-control">
 		  <option value="First version">Version 1</option>
-		  <option value="">Version 2</option>
+{{-- 		  <option value="">Version 2</option>
 		  <option value="">Version 3</option>
 		  <option value="">Version 4</option>
-		  <option value="">Version 5</option>
+		  <option value="">Version 5</option> --}}
 		</select>
 
 		<select class="form-control">
 		  <option value="First game">Mario</option>
-		  <option value="">Tetris</option>
+{{-- 		  <option value="">Tetris</option>
 		  <option value="">Luigie</option>
 		  <option value="">Dirt Bike Extream</option>
-		  <option value="">Awsome Dude!!</option>
+		  <option value="">Awsome Dude!!</option> --}}
 		</select>
 
-		<select id="level" class="form-control">
+{{-- 		<select id="level" class="form-control">
 		  <option value="1">1</option>
 		  <option value="2">2</option>
 		  <option value="3">3</option>
 		  <option value="4">4</option>
 		  <option value="5">5</option>
-		</select>
+		</select> --}}
 
-		<div class="form-group">
+{{-- 		<div class="form-group">
 			<input id="canvas_width" class="form-control" type="number" placeholder="canvas width 200">
-		</div>
+		</div> --}}
 	</div>
 
 	<div class="row center">
@@ -75,10 +75,10 @@
 
 		<select id="image" class="form-control inlineSelect">
 		  <option value="" selected="true" disabled >Image</option>
-		  <option>Tetris</option>
+{{-- 		  <option>Tetris</option>
 		  <option>Luigie</option>
 		  <option>Dirt Bike Extream</option>
-		  <option>Awsome Dude!!</option>
+		  <option>Awsome Dude!!</option> --}}
 		</select>
 
 		<select id="ai" class="form-control">
