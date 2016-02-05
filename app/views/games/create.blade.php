@@ -37,7 +37,7 @@
 		  <option value="">Awsome Dude!!</option> --}}
 		</select>
 
-		<input type='text' id="level_name_input" class="form-control">
+		<input type='text' id="level_name_input" class="form-control" >
 
 
 
