@@ -897,7 +897,7 @@ function handleEnd(evt) {
         levelComplete: function () {
             if(!gameObject.levelOver){
                 // new gameObject.backgroundObj(0,0,2000,100,'rgba(50,200,20,.1');
-                // gameObject.levelOver = true;
+                gameObject.levelOver = true;
                 lvlId++;
                 window.location.replace("http://shawnpivonka.com/games/" + lvlId);
             }
