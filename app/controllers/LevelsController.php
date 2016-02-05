@@ -47,7 +47,7 @@ class LevelsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$data = Call::where('level_id', '>=', $id)->get();
+		$data = Call::where('level_id', '>=', $id)->first();
 		// $data = Call::where('level_id',$id)->get();
 		return Response::json($data);
 	}
