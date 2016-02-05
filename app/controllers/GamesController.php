@@ -9,7 +9,7 @@ class GamesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('games.show');
+		return View::make('games.levels.index');
 	}
 
 
