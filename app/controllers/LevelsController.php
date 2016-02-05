@@ -10,7 +10,7 @@ class LevelsController extends \BaseController {
 	public function index()
 	{
 		$levels = Level::paginate(10);
-		if(!$levels->count() === 0){
+		if ($levels->count() === 0){
 			Session::flash('errorMessage', 'There were no results matching your search.');
 		}
 		return View::make('/games/levels.index')->with('levels',$levels);
@@ -87,7 +87,7 @@ class LevelsController extends \BaseController {
 	{
 		if ( Auth::check() ){
 
-			$calls = Call::with('level_id', '=', $id);
+			$calls = Call::where('level_id', '=', $id)->get();
 			foreach($calls as $call)
 			{
 				$call->delete();
