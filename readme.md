@@ -1,6 +1,6 @@
 ## Blog.dev was initally going a blog project at Codeup.
 
-site is live at shawnpivonka.com
+site is live at (http://www.shawnpivonka.com)
 
 Blog.dev is a side project to allow people to make a mario style game level in canvase by draging
 the mouse on the screen. Im not a blogger so i decided to make a CRUD app that makes game levels 
