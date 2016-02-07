@@ -7,7 +7,7 @@ the mouse on the screen. Im not a blogger so i decided to make a CRUD app that m
 instead of blog post.
 
 
-## Getting Started
+## If you want to contribute
 
 - Clone this repository
 - Create a local database for this application
