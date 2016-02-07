@@ -24,7 +24,21 @@
 	padding-right:20px;
 	padding-top:60px;
 }
-
+#my_profile_pic{
+  width:200px;
+  height:200px;
+  margin-left:30px;
+  border-radius:50%;
+}
+p{
+  margin:25px;
+}
+h3{
+  margin:25px;
+}
+#github-repo{
+  margin:25px;
+}
 </style>
 
 @stop
@@ -45,7 +59,7 @@
 
   <section class="row radius" id="fetured_game_home">
     <h1>Some information on this project</h1>
-    <a href="https://github.com/sprov03/blog.dev">Github Repo for this project</a>
+    <a id="github-repo"href="https://github.com/sprov03/blog.dev">Github Repo for this project</a>
 
     <h3>Front End</h3>
       <p>I created a physics engine with vanilla javascript in order to learn how design a program
@@ -89,6 +103,8 @@
 
   <section class="row radius" id="aboutme_home">
     <h1>Shawn Pivonka</h1>
-    <p>Im awsome</p>
+    <img id="my_profile_pic" src="/img/hampton1-16_0115.jpg">
+    <p>I am a recent graduate form Codeup.  This is a side project that i was working on while
+      i was attending.</p>
   </section>
 @stop

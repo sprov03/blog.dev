@@ -60,7 +60,7 @@
 
 	<div class="form-inline center">
 		<select id="type" class="form-control inlineSelect">
-		  <option value="" selected="true" value="" disabled >Type Of Object</option>
+		  {{-- <option value="" selected="true" value="" disabled >Type Of Object</option> --}}
 		  <option value="backdropObj">Backdrop</option>
 		  <option value="backgroundObj">Background</option>
 		  {{-- <option value="player">Player</option>
@@ -69,10 +69,10 @@
 		</select>
 
 		<select id="color" class="form-control inlineSelect">
-		  <option value="" selected="true" disabled >Color</option>
+		  {{-- <option value="" selected="true" disabled >Color</option> --}}
+		  <option value="black">Black</option>
 		  <option value="green">Green</option>
 		  <option value="blue">Blue</option>
-		  <option value="black">Black</option>
 		  <option value="red">Red</option>
 		  <option value="white">White</option>
 		  <option value="pink">Pink</option>
