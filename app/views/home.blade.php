@@ -39,6 +39,9 @@ h3{
 #github-repo{
   margin:25px;
 }
+li{
+  list-style: none;
+}
 </style>
 
 @stop
@@ -106,5 +109,19 @@ h3{
     <img id="my_profile_pic" src="/img/hampton1-16_0115.jpg">
     <p>I am a recent graduate form Codeup.  This is a side project that i was working on while
       i was attending.</p>
+      <ul>
+        <li>Creative Problem Solving: 9/10</li>
+        <li>Html: 6/10</li>
+        <li>CSS: 6/10</li>
+        <li>JavaScript: 6/10</li>
+        <li>Jquery: 4/10</li>
+        <li>Vue.js: 3/10</li>
+        <li>Angular: 1/10</li>
+        <li>PHP: 3/10</li>
+        <li>Slim Framework: 2/10</li>
+        <li>Laravel: 2/10</li>
+        <li>Java: 1/10</li>
+        <li>Python: 1/10</li>
+      </ul>
   </section>
 @stop
