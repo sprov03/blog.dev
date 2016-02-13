@@ -14,6 +14,7 @@ canvas{
 	@include('bread-crumbs.levels')
 
 	<h1>Level {{{ $level->id }}}</h1>
+	<p>enter to fire, arrows to move, spacebar to jump</p>
 
 	<input id="level_id" value="{{{ $level->id }}}"hidden>
 	<input id="next_level" value=" {{{ $level->next_level }}} " hidden>
