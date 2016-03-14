@@ -37,7 +37,7 @@
 		  <option value="">Awsome Dude!!</option> --}}
 		</select>
 
-		<input type='text' id="level_name_input" class="form-control" >
+		<input type='text' id="level_name_input" class="form-control" placeholder="Level Name">
 
 
 
@@ -248,6 +248,16 @@
 
 	$( "#nextObj" ).click(function() {
 
+
+		if( newObj.width < 0 ){
+			newObj.x += newObj.width;
+			newObj.width *= -1;
+		}
+		if ( newObj.height < 0 ){
+			newObj.y += newObj.height;
+			newObj.height *= -1;
+		}
+
 		var string = ($("#csvString").val() === '') ? '' : $("#csvString").val() + '*';
 		string += newObj.type + ',';
 		string += newObj.x / cSizing + ',';
@@ -303,6 +313,18 @@
         if(event === 37){}
         if(event === 32) {}
         if (event === 13) {
+
+
+
+		if( newObj.width < 0 ){
+			newObj.x += newObj.width;
+			newObj.width *= -1;
+		}
+		if ( newObj.height < 0 ){
+			newObj.y += newObj.height;
+			newObj.height *= -1;
+		}
+
 
 		var string = ($("#csvString").val() === '') ? '' : $("#csvString").val() + '*';
 		string += newObj.type + ',';
