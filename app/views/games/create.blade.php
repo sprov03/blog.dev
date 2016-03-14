@@ -61,11 +61,11 @@
 	<div class="form-inline center">
 		<select id="type" class="form-control inlineSelect">
 		  {{-- <option value="" selected="true" value="" disabled >Type Of Object</option> --}}
-		  <option value="backdropObj">Backdrop</option>
-		  <option value="backgroundObj">Background</option>
+		  <option value="backdropObj">Backdrop, decoration</option>
+		  <option value="backgroundObj">groud,walls,ect..</option>
 		  {{-- <option value="player">Player</option>
 		  <option value="turtle">Turtle</option> --}}
-		  <option value="enemyObj">Gunner</option>
+		  <option value="enemyObj">Enemy</option>
 		</select>
 
 		<select id="color" class="form-control inlineSelect">
