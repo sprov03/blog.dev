@@ -105,7 +105,7 @@ li{
 
 
   <section class="row radius" id="aboutme_home">
-    <h1>Shawonka</h1>
+    <h1>Shawn Pivonka</h1>
     <img id="my_profile_pic" src="/img/hampton1-16_0115.jpg">
     <p>I am a recent graduate form Codeup.  This is a side project that i was working on while
       i was attending.</p>
