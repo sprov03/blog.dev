@@ -30,6 +30,11 @@
 .btn{
 	margin-left:25px;
 }
+.iframe{
+	height: 140px;
+	position: relative;
+	left: 30px;
+}
 
 
 </style>
@@ -44,32 +49,30 @@
 	<h1>Levels</h1>
 
 	@foreach( $levels as $level)
+		<a href="{{{ action('GamesController@show', $level->id) }}}">
+			<div class="row show_level">
 
-
-	<a href="{{{ action('GamesController@show', $level->id) }}}">
-		<div class="row show_level">
-
-			<div class="row">
-				<h6 class="id">{{{ $level->id }}}</h6>
-			</div>
-
-			<div class="row">
-				<p class="level_name">{{{ $level->level_name }}}</p>
-			</div>
-			@if( Auth::check() )
 				<div class="row">
-					{{ Form::open(['action'=>['LevelsController@destroy',$level->id], 'method'=>'DELETE']) }}
-						{{ Form::submit('Delete',['class'=>'btn btn-xs btn-danger'])}}
-					{{ Form::close()}}
+					<h6 class="id">{{{ $level->id }}}</h6>
+					<iframe class="iframe" src="{{{ action('GamesController@show', $level->id) }}}/#preview_game" scrolling="no" seamless="seamless"></iframe>
 				</div>
-			@endif
-			<div class="row right">
-				<span class="created">Created on {{{$level->created_at}}}</span>
+
+				<div class="row">
+					<p class="level_name">{{{ $level->level_name }}}</p>
+				</div>
+				@if( Auth::check() )
+					<div class="row">
+						{{ Form::open(['action'=>['LevelsController@destroy',$level->id], 'method'=>'DELETE']) }}
+							{{ Form::submit('Delete',['class'=>'btn btn-xs btn-danger'])}}
+						{{ Form::close()}}
+					</div>
+				@endif
+				<div class="row right">
+					<span class="created">Created on {{{$level->created_at}}}</span>
+				</div>
+
 			</div>
-
-		</div>
-	</a>
-
+		</a>
 	@endforeach
 	<div class="center">
 		{{ $levels->links() }}

@@ -4,7 +4,16 @@
 <style type="text/css">
 canvas{
 	background: white;
+}	
+#main{
+	padding: 0;
+	width: 95%;
 }
+#preview_game{
+	position: relative;
+	top: 10px;
+}
+
 </style>
 @stop
 
@@ -18,7 +27,7 @@ canvas{
 
 	<input id="level_id" value="{{{ $level->id }}}"hidden>
 	<input id="next_level" value=" {{{ $level->next_level }}} " hidden>
-
+	<div id="preview_game"></div>
 	<canvas id="canvas" height="300" width="300"></canvas>
 
 @stop

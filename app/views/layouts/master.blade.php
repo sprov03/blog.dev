@@ -22,7 +22,7 @@
 
 		@yield('top-script')
 	</head>
-	<body>
+	<body id="body">
 		{{-- @include('partials.navbar') --}}
 		<main id="main" class="container">
 
