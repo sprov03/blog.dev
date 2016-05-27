@@ -2,6 +2,9 @@
 
 @section('top-script')
 <style type="text/css">
+.hidden{
+  display: none;
+}
 #splash_home{
 	background-image: url("../img/splash2.jpg");
 	background-width: 100%;
@@ -42,7 +45,55 @@ h3{
 li{
   list-style: none;
 }
+#projects{
+  background:pink;
+  padding: 30px;
+
+}
+#projects .project{
+  height:300px;
+  width: 100%;
+  overflow: hidden;
+  margin:5px;
+}
+#projects .project .iframe{
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+  border: none;
+  float: left;
+}
+#projects .project .discribe_project{
+  height: 100%;
+  background:yellow;
+  width:40%;
+  float:right;
+  position: relative;
+}
+#projects .project .discribe_project a{
+  background: green;
+  color:white;
+  padding: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX( -50%);
+  bottom: 15px;
+}
+
+.flashing_on{
+  transition: all .5s;
+  opacity: 1;
+  font-size: 50px;
+}
+.flashing_off{
+  transition: all .5s;
+  opacity: .2;
+  font-size: 35px;
+}
+
+
 </style>
+
 
 @stop
 
@@ -54,8 +105,8 @@ li{
     <h1>Let's Make a Game!!</h1>
 
     <ul class="right stylenone">
-      <li class="home_links"><a href="{{{ action('LevelsController@index') }}}">Play</a></li>
-      <li class="home_links"><a href="{{{ action('GamesController@create') }}}">Create<a/></li>
+      <li class="home_links"><a class="flashing_on" href="{{{ action('LevelsController@index') }}}">Play</a></li>
+      <li class="home_links"><a class="flashing_on" href="{{{ action('GamesController@create') }}}">Create<a/></li>
     </ul>
   </section>
 
@@ -103,6 +154,28 @@ li{
     <h3>Back End</h3>
   </section>
 
+  <section class="row radius hidden" id="projects">
+    <h1>My Projects</h1>
+    <div id="google_maps" class="project">
+        <iframe class="iframe" src="{{{ action('ProjectsController@showGoogleMapApi') }}}" seamless="seamless"></iframe>
+        <div class="discribe_project">
+          <h3>Custom Google Map Disigner</h3>
+          <p>Any time i use google maps and have to learn a new feature of the api, I plan on including the feture in this interactive map maker. Which will return the code neccisary to plug it into your app</p>
+          <a href="{{{ action('ProjectsController@showGoogleMapApi') }}}">Go To Page</a>
+        </div>
+    </div>
+    <div class="project">
+        <iframe class="iframe" src="{{{ action('HomeController@showAboutme') }}}" seamless="seamless"></iframe>
+        <div class="discribe_project">
+          <h3>About Me</h3>
+          <p>some basic stuff about me</p>
+          <a href="{{{ action('HomeController@showAboutme') }}}">Go To Page</a>
+        </div>
+    </div>
+    <div class="project hidden"></div>
+    <div class="project hidden"></div>
+  </section>
+
 
   <section class="row radius" id="aboutme_home">
     <h1>Shawn Pivonka</h1>
@@ -124,4 +197,26 @@ li{
         <li>Python: 1/10</li>
       </ul>
   </section>
+@stop
+
+@section('bottom-script')
+<script>
+var flashing_on = document.getElementsByClassName('flashing_on');
+var flashing_off = document.getElementsByClassName('flashing_off');
+
+setInterval( function(){
+  var totOn = flashing_on.length;
+  var totOff = flashing_off.length;
+
+  for(var i = 0; i < totOn; i++){
+     flashing_on.item(0).className = 'flashing_off';
+  }
+  for(var i = 0; i < totOff; i++){
+     flashing_off.item(0).className = 'flashing_on';
+  }
+}, 500);
+
+
+
+</script>
 @stop

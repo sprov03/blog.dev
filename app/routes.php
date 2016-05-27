@@ -24,6 +24,11 @@ Route::get('/logout', 'HomeController@getLogout');
 Route::get('/', 'HomeController@showHome');
 
 /*
+ *	Projects
+ */
+Route::get('/proj', 'ProjectsController@showGoogleMapApi');
+
+/*
  *	posts
  */
 Route::get('/posts/title/{title}', "PostsController@findTitle");
@@ -37,6 +42,7 @@ Route::resource('/games/levels', 'LevelsController');
 /*
  *	games
  */
+Route::get('/games/levels/preview', 'GamesController@showPreview');
 // Route::get('/games/level/{level}', 'GamesController@getLevel');
 Route::resource('/games', 'GamesController');
 
