@@ -122,7 +122,7 @@ vis(function(){
      *  Gets the size of the canvas_container that is set by bootstrap
      *  and used that to set the canvas width and height.
      */
-    c.setAttribute('width', document.getElementById("main").offsetWidth);
+    c.setAttribute('width', document.getElementById("main").offsetWidth - 2);
     c.setAttribute('height', ctx.canvas.width * .45);
     var cx = ctx.canvas.width;
     var cy = ctx.canvas.height;
