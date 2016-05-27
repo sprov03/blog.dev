@@ -489,7 +489,7 @@ function handleEnd(evt) {
             };
 
             this.AI = function () {
-                if ( gameTime > this.nextAction && gameObject.activeObj.right() > this.left() - cSizing * 60 ){
+                if ( gameTime > this.nextAction && gameObject.activeObj.right() > this.left() - cSizing * 100 ){
 
                     this.nextAction = gameTime + 900;
                     new gameObject.fire(this.x, this.y, -cSizing * .6, 0);

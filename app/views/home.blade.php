@@ -46,7 +46,7 @@ li{
   list-style: none;
 }
 #projects{
-  background:pink;
+  background: #888888;
   padding: 30px;
 
 }
@@ -157,7 +157,7 @@ li{
   <section class="row radius hidden" id="projects">
     <h1>My Projects</h1>
     <div id="google_maps" class="project">
-        <iframe class="iframe" src="{{{ action('ProjectsController@showGoogleMapApi') }}}" seamless="seamless"></iframe>
+        <iframe class="iframe" src="{{{ action('ProjectsController@showGoogleMapApi') }}}" seamless="seamless" scrolling="no"></iframe>
         <div class="discribe_project">
           <h3>Custom Google Map Disigner</h3>
           <p>Any time i use google maps and have to learn a new feature of the api, I plan on including the feture in this interactive map maker. Which will return the code neccisary to plug it into your app</p>
@@ -165,7 +165,7 @@ li{
         </div>
     </div>
     <div class="project">
-        <iframe class="iframe" src="{{{ action('HomeController@showAboutme') }}}" seamless="seamless"></iframe>
+        <iframe class="iframe" src="{{{ action('HomeController@showAboutme') }}}" seamless="seamless" scrolling="no"></iframe>
         <div class="discribe_project">
           <h3>About Me</h3>
           <p>some basic stuff about me</p>
