@@ -44,7 +44,7 @@
 
 		    <div class="form-group">
 		        <label for="exampleInputFile">Body</label>
-		        <textarea name="comment" class="form-control"id="exampleInputFile" rows="10"   placeholder="Hows it going?"></textarea>
+		        <textarea name="comment" class="form-control"id="exampleInputFile" rows="10"   placeholder="This is not set up yet, just threw the page togeather.......  sorry!!"></textarea>
 		    </div>
 
 		    <br>

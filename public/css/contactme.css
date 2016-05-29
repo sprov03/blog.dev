@@ -31,3 +31,6 @@ main form>:nth-child(8) a{
 #contact_me_form{
 	margin-bottom:15px;
 }
+#main > h1{
+	margin-top:100px;
+}

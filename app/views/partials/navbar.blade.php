@@ -29,8 +29,8 @@
 				<li><a>Three</a></li>
 			</ul>
 		</li>
-		<li><a>Something else</a></li>
-		<li id="contact_me"><a>Contact Me</a></li>
+		<li><a href="{{{ action('HomeController@showHome')}}}">Home</a></li>
+		<li id="contact_me"><a href="{{{ action('HomeController@showContactme') }}}">Contact Me</a></li>
 	</ul>
 </nav>
 

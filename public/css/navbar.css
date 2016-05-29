@@ -147,9 +147,11 @@
 	}
 }
 /* Smaller then 350( devices and browsers ) */
-@media only screen and (max-width: 449){
-
-}
+@media screen and (orientation: landscape) and (max-width: 800px) {
+	.my_navbar{
+		display:none;
+	}
+}	
 
 
 
