@@ -4,26 +4,19 @@
 	<ul>
 		<li><a>Projects</a>
 			<ul>
-				<li><a>One</a></li>
+				<li><a>One
+					{{-- <div id="google_maps" class="project"> --}}
+							
+						{{-- 	<div class="discribe_project">
+								<h3>Custom Google Map Disigner</h3>
+								<p>Any time i use google maps and have to learn a new feature of the api, I plan on including the feture in this interactive map maker. Which will return the code neccisary to plug it into your app</p>
+								<a href="{{{ action('ProjectsController@showGoogleMapApi') }}}">Go To Page</a>
+							</div>
+					</div> --}}
+				</a></li>
 				<li><a>Two</a>
 					<ul>
-						<li><a>sub one</a></li>
-						<li><a>sub two</a></li>
-						<li><a>Two</a>
-							<ul>
-								<li><a>sub one</a></li>
-								<li><a>sub two</a></li>
-								<li><a>Two</a>
-									<ul>
-										<li><a>sub one</a></li>
-										<li><a>sub two</a></li>
-										<li><a>sub three</a></li>
-									</ul>
-								</li>
-								<li><a>sub three</a></li>
-							</ul>
-						</li>
-						<li><a>sub three</a></li>
+						<li><a href="{{{ action('ProjectsController@showGoogleMapApi') }}}"><div class="iframe_cover"></div><iframe class="iframe" src="{{{ action('ProjectsController@showGoogleMapApi') }}}/#preview_game" seamless="seamless" scrolling="no"></iframe></a></li>
 					</ul>
 				</li>
 				<li><a>Three</a></li>

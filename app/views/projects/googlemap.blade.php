@@ -8,6 +8,7 @@
 		}
 		h1{
 			font-size: 20px;
+			margin-top: 100px;
 		}
 		#your_map{
 			box-sizing: border-box;
@@ -32,6 +33,10 @@
 		select, input, button{
 			margin: 0 0 5px 0;
 		}
+		#preview_game{
+			position: relative;
+			top:-50px;
+		}
 	</style>
 @stop
 
@@ -40,9 +45,10 @@
 @section('content')
 	<h1>Customize your map!</h1>
 	<div class="row">
+		
 
-		<div id="your_map" class="col-md-7">
-		</div>
+		<div id="preview_game"></div>
+		<div id="your_map" class="col-md-7"></div>
 		
 		<div id="controls" class="col-md-5 canvas" >
 			<select class="form-control">
@@ -138,12 +144,10 @@
 		               mapOptions.center.lng = results[0].geometry.location.lng();
 		               // drawMap();
 		               for( var i=0; i<results.length; i++){
-		               	console.log( results[i].geometry.location.lat() );
 		               }
 		           } else {
 		               alert("Geocoding was not successful - STATUS: " + status);
 		           }
-		           console.log(mapOptions.center);
 		        });
 		    } );
 
@@ -200,12 +204,14 @@
 	  n = Math.max(0,Math.min(n,255));
 	  return "0123456789ABCDEF".charAt((n-n%16)/16)  + "0123456789ABCDEF".charAt(n%16);
 	}
+
 	$('#hue').click(function(event){
 	  // getting user coordinates
 	  var x = (event.pageX - this.offsetLeft) / $('#hue').width() * 100;
-	  var y = (event.pageY - this.offsetTop) / $('#hue').width() * 100;
+	  var y = (event.pageY - 	$(this).offset.top) / $('#hue').width() * 100;
+
 	  // getting image data and RGB values
-	  var img_data = canvas.getImageData(x, y, 1, 1).data;
+	  var img_data = canvas.getImageData(x, 20, 1, 1).data;
 	  var R = img_data[0];
 	  var G = img_data[1];
 	  var B = img_data[2];  

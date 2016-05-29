@@ -7,12 +7,8 @@
 
 @section('content')
 
-	{{-- Nav Bar --}}
-		{{-- <section class="topbar"> --}}
-			<div id="my_name">Shawn Pivonka</div>
 
-		{{-- </section> --}}
-
+	<div id="my_name">Shawn Pivonka</div>
 
 	{{-- Hero Section --}}
 		<section id="splash_home">
