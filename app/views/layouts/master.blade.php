@@ -23,8 +23,8 @@
 		@yield('top-script')
 	</head>
 	<body id="body">
-		{{-- @include('partials.navbar') --}}
-		<main id="main" class="container">
+		@include('partials.navbar')
+		<main id="main" class="container-fluid">
 
 			@if (Session::has('successMessage'))
 			    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
