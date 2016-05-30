@@ -338,46 +338,46 @@
 			$('#copy_to_clipboard').click(function(){
 				//  This intire Function is a template that is being logged to the console.
 				var code = `
-					<!-- Add script tags with the link to the google maps api with your api key here -->
-					<canvas id="map-canvas" width="500" height="500"></canvas>
+<!-- Add script tags with the link to the google maps api with your api key here -->
+<canvas id="map-canvas" width="500" height="500"></canvas>
 
-					var geocoder = new google.maps.Geocoder();
-					var mapCenter = {  lat: ` + mapOptions.center.lat + `, lng: ` + mapOptions.center.lng + ` };
-					var mapOptions = {
-						zoom: 18,				//Still need to figure out how to pull this in dynamicly
-						center: mapCenter,
-						mapTypeControlOptions: {
-							mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-						},
-						scrollwheel: false,
-					    mapTypeControl: false,
-					    streetViewControl: false
-					};
+var geocoder = new google.maps.Geocoder();
+var mapCenter = {  lat: ` + mapOptions.center.lat + `, lng: ` + mapOptions.center.lng + ` };
+var mapOptions = {
+	zoom: 18,				//Still need to figure out how to pull this in dynamicly
+	center: mapCenter,
+	mapTypeControlOptions: {
+		mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+	},
+	scrollwheel: false,
+    mapTypeControl: false,
+    streetViewControl: false
+};
 
-					var styles = ` + JSON.stringify( styles, null, 4 ) + `;
+var styles = ` + JSON.stringify( styles, null, 4 ) + `;
 
 
-					function drawMap(){
+function drawMap(){
 
-						// Create a new StyledMapType object, passing it the array of styles,
-						// as well as the name to be displayed on the map type control.
-						var styledMap = new google.maps.StyledMapType(styles, {name: "Your Custom Map!!"});
+	// Create a new StyledMapType object, passing it the array of styles,
+	// as well as the name to be displayed on the map type control.
+	var styledMap = new google.maps.StyledMapType(styles, {name: "Your Custom Map!!"});
 
-						// Render the map
-						var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);  // Change this to match your canvas id
+	// Render the map
+	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);  // Change this to match your canvas id
 
-						map.mapTypes.set('map_style', styledMap); 	// Creates the id for styledMap
-						map.setMapTypeId('map_style');  			// Set the Map to be displayed
-						// Add the marker to our existing map
-						var marker = new google.maps.Marker({
-							position: mapCenter,
-							map: map,
-							title: "",
-							icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'// This is a link to an image, can be on any server 
-						});
-					}
+	map.mapTypes.set('map_style', styledMap); 	// Creates the id for styledMap
+	map.setMapTypeId('map_style');  			// Set the Map to be displayed
+	// Add the marker to our existing map
+	var marker = new google.maps.Marker({
+		position: mapCenter,
+		map: map,
+		title: "",
+		icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'// This is a link to an image, can be on any server 
+	});
+}
 
-					drawMap();
+drawMap();
 				`;
 
 				console.log( code );
