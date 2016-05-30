@@ -155,6 +155,15 @@
 				} while( elem = elem.offsetParent );
 				return offsetTop;
 			}
+			function doseExist(){
+		    	var len = styles.length;
+		    	for (var i=0; i<len; i++){
+		    		if ( styles[i].featureType === $('#map_feature').val() && styles[i].elementType === $('#map_element').val() ){
+		    			return styles[i];
+		    		}
+		    	}
+		    	return false;
+			}
 
 		// Create a map object, and include the MapTypeId to add to the map type control.
 			var geocoder = new google.maps.Geocoder();
@@ -172,19 +181,19 @@
 
 		// Create an array of styles.
 			var styles = [
-			{
-				stylers: [
-					{ hue: "#d4e9ff" },
-					{ saturation: 99 }
-				]
-			},{
-				featureType: "road",
-				elementType: "geometry",
-					stylers: [
-						{ lightness: 100 },
-						{ visibility: "simplified" }
-					]
-				}
+			// {
+			// 	stylers: [
+			// 		{ hue: "#d4e9ff" },
+			// 		{ saturation: 99 }
+			// 	]
+			// },{
+			// 	featureType: "road",
+			// 	elementType: "geometry",
+			// 		stylers: [
+			// 			{ lightness: 100 },
+			// 			{ visibility: "simplified" }
+			// 		]
+			// 	}
 			];
 
 		// Draw Map Function 
@@ -272,15 +281,10 @@
 		    	if ( $('#color').val() ) newStyle.stylers.push({color: $('#color').val() });
 		    	if ( $('#weight').val() ) newStyle.stylers.push({weight: $('#weight').val() });
 
-		    	var overwrite = false;
-		    	var len = styles.length;
-		    	for (var i=0; i<len; i++){
-		    		if ( styles[i].featureType === $('#map_feature').val() && styles[i].elementType === $('#map_element').val() ){
-		    			styles[i] = newStyle;
-		    			overwrite = true;
-		    		}
-		    	}
-		    	if ( !overwrite ){
+		    	var  style = doseExist( newStyle );// if exist returns the style object else returns false;
+		    	if ( style ){
+	    			style = newStyle;
+		    	} else {
 			    	styles.push(newStyle);
 		    	}
 
@@ -326,14 +330,14 @@
 				// drawMap();
 			});
 
-			$('#map_feature').change(function(event){
-				if ($(this).val() != 'all'){
-					$('#hue').addClass('hidden').val('');
-					$('#hue_label').addClass('hidden');
-				} else{
-					$('#hue, #hue_label').removeClass('hidden');
-				}
-			});
+			// $('#map_feature').change(function(event){
+			// 	if ($(this).val() != 'all'){
+			// 		$('#hue').addClass('hidden').val('');
+			// 		$('#hue_label').addClass('hidden');
+			// 	} else{
+			// 		$('#hue, #hue_label').removeClass('hidden');
+			// 	}
+			// });
 
 			$('#copy_to_clipboard').click(function(){
 				//  This intire Function is a template that is being logged to the console.
