@@ -1,0 +1,166 @@
+/*  Hero Section  */
+
+	#splash_home{
+		overflow: hidden;
+		position: relative;
+		height: 50vw;
+		margin: -20px;
+	}
+
+	#left_hero {
+		background: transparent;
+		height:inherit;
+		transform:skewX(-7deg);
+		width: 70%;
+		position: absolute;
+		left:-20%;
+		z-index: 5;
+		overflow: hidden;
+
+		img{
+			height: 100%;
+			position: relative;
+			left:10%;
+		}
+	}
+
+	#right_hero{
+		background:yellow;
+		height: inherit;
+		width: 70%;
+		margin: 0;
+		padding: 0;
+		float: right;
+		img{
+			height: 100%;
+			position: relative;
+			left: 2%;
+		}
+		&>ul{
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			bottom: 5vw;
+			right: 8vw;
+			width: 16vw;
+			height: 16vw;
+			z-index: 10;
+			background-color: transparent;
+
+			li.home_links{
+				height: 8vw;
+				width: 16vw;
+				padding: 0;
+				margin: 0;
+				font-size: 3vw;
+				text-align: center;
+
+				a{
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	.unskew{
+		transform: skewX(7deg);
+		height: inherit;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#fetured_game_home{
+	background:blue;
+}
+#aboutme_home{
+	background: orange;
+}
+
+
+
+#my_profile_pic{
+	width:200px;
+	height:200px;
+	margin-left:30px;
+	border-radius:50%;
+}
+p{
+	margin:25px;
+}
+h3{
+	margin:25px;
+}
+#github-repo{
+	margin:25px;
+}
+li{
+	list-style: none;
+}
+#projects{
+	background: #888888;
+	padding: 30px;
+
+}
+#projects .project{
+	height:300px;
+	width: 100%;
+	overflow: hidden;
+	margin:5px;
+}
+#projects .project .iframe{
+	width: 60%;
+	height: 100%;
+	overflow: hidden;
+	border: none;
+	float: left;
+}
+#projects .project .discribe_project{
+	height: 100%;
+	background:yellow;
+	width:40%;
+	float:right;
+	position: relative;
+}
+#projects .project .discribe_project a{
+	background: green;
+	color:white;
+	padding: 5px;
+	position: absolute;
+	left: 50%;
+	transform: translateX( -50%);
+	bottom: 15px;
+}
+
+.flashing_on{
+	transition: all .5s;
+	opacity: 1;
+	font-size: 50px;
+	font-size: 2.5vw;
+}
+.flashing_off{
+	transition: all .5s;
+	opacity: .2;
+	font-size: 35px;
+	font-size: 2vw;
+}
+
+
