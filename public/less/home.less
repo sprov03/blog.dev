@@ -67,6 +67,18 @@
 		height: inherit;
 	}
 
+	.flashing_on{
+		transition: all .5s;
+		opacity: 1;
+		font-size: 50px;
+		font-size: 2.5vw;
+	}
+	.flashing_off{
+		transition: all .5s;
+		opacity: .2;
+		font-size: 35px;
+		font-size: 2vw;
+	}
 
 
 
@@ -119,48 +131,40 @@ li{
 	background: #888888;
 	padding: 30px;
 
-}
-#projects .project{
-	height:300px;
-	width: 100%;
-	overflow: hidden;
-	margin:5px;
-}
-#projects .project .iframe{
-	width: 60%;
-	height: 100%;
-	overflow: hidden;
-	border: none;
-	float: left;
-}
-#projects .project .discribe_project{
-	height: 100%;
-	background:yellow;
-	width:40%;
-	float:right;
-	position: relative;
-}
-#projects .project .discribe_project a{
-	background: green;
-	color:white;
-	padding: 5px;
-	position: absolute;
-	left: 50%;
-	transform: translateX( -50%);
-	bottom: 15px;
+	.project{
+		height:300px;
+		width: 100%;
+		overflow: hidden;
+		margin:5px;
+
+		.iframe{
+			width: 60%;
+			height: 100%;
+			overflow: hidden;
+			border: none;
+			float: left;
+		}
+
+		.discribe_project{
+			height: 100%;
+			background:yellow;
+			width:40%;
+			float:right;
+			position: relative;
+
+			a{
+				background: green;
+				color:white;
+				padding: 5px;
+				position: absolute;
+				left: 50%;
+				transform: translateX( -50%);
+				bottom: 15px;
+			}	
+		}
+	}
 }
 
-.flashing_on{
-	transition: all .5s;
-	opacity: 1;
-	font-size: 50px;
-	font-size: 2.5vw;
-}
-.flashing_off{
-	transition: all .5s;
-	opacity: .2;
-	font-size: 35px;
-	font-size: 2vw;
-}
+
 
 
