@@ -11,11 +11,11 @@
 			margin-top: 100px;
 		}
 		#your_map{
-			/*box-sizing: border-box;
+			/*box-sizing: border-box;*/
 			border-radius: 5px;
-			height: 60vw;
-		    margin: 0 15px 10px;
-		    padding: 0;*/
+			/*height: 60vw;*/
+		    /*margin: 0 15px 10px;*/
+		    /*padding: 0;*/
 		}
 		#color_picker{
 			width: 100%; 
@@ -59,7 +59,9 @@
 		
 
 		<div id="preview_game"></div>
-		<div id="your_map" class="col-sm-6"></div>
+		<div class="col-sm-6">
+			<div id="your_map"></div>
+		</div>
 		<div id="controls" class="col-sm-6">
 			<label for="geo_address">Address</label>
 			<input id="geo_address" class="form-control" placeholder="new address"></input>
@@ -155,6 +157,7 @@
 				} while( elem = elem.offsetParent );
 				return offsetTop;
 			}
+			// If style object already exist return it, else return false;
 			function doseExist(){
 		    	var len = styles.length;
 		    	for (var i=0; i<len; i++){
