@@ -340,7 +340,7 @@
 				var code = `
 <!-- Add script tags with the link to the google maps api with your api key here -->
 <canvas id="map-canvas" width="500" height="500"></canvas>
-
+<scrip` + `t>
 var geocoder = new google.maps.Geocoder();
 var mapCenter = {  lat: ` + mapOptions.center.lat + `, lng: ` + mapOptions.center.lng + ` };
 var mapOptions = {
@@ -378,7 +378,8 @@ function drawMap(){
 }
 
 drawMap();
-				`;
+</scrip` + `t>
+`;
 
 				console.log( code );
 			});
