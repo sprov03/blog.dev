@@ -63,50 +63,63 @@
 		<div id="controls" class="col-sm-6">
 			<label for="geo_address">Address</label>
 			<input id="geo_address" class="form-control" placeholder="new address"></input>
+			
 			<?php
 				$mapFeatures = ['all','administrative','administrative.country','administrative.land_parcel','administrative.locality','administrative.neighborhood','administrative.province','landscape','landscape.man_made','landscape.natural','landscape.natural.landcover','landscape.natural.terrain','poi','poi.attraction','poi.business','poi.government','poi.medical','poi.park','poi.place_of_worship','poi.school','poi.sports_complex','road','road.arterial','road.highway','road.highway.controlled_access','road.local','transit','transit.line','transit.station','transit.station.airport','transit.station.bus','transit.station.rail','water'];
 				$mapElements = ['geometry','geometry.fill','geometry.stroke','labelslabels.icon','labels.text','labels.text.fill','labels.text.stroke'];
 			?>
+			
 			<label for-"map_feature">Map Feature</label>
 			<select id="map_feature" class="form-control">
 				<?php foreach( $mapFeatures as $each ): ?>
 					<option><?php echo $each; ?></option>
 				<?php endforeach; ?>
 			</select>
+			
 			<label for="map_element">Map Element</label>
 			<select id="map_element" class="form-control">
 				<?php foreach( $mapElements as $each ): ?>
 					<option><?php echo $each; ?></option>
 				<?php endforeach; ?>
 			</select>
+			
 			<canvas id="color_picker" width="100" height="100" class="hidden color_picker_canvas"></canvas>
+			
 			<label for="color">Color</label>
 			<input id="color" class="form-control color_picker" type="text" placeholder="(an RGB hex string)"></input>
+			
 			<label for="hue" id="hue_label">Hue</label>
 			<input id="hue" class="form-control color_picker" type="text" placeholder="(an RGB hex string)"></input>
 			{{-- <canvas id="hue_picker" width="100" height="100" class="hidden color_picker_canvas"></canvas> --}}
+			
 			<label for="lightness">Lighness</label>
 			<input id="lightness" class="form-control" type="number" placeholder="-100 to 100"></input>
+			
 			<label for="saturation">Saturation</label>
 			<input id="saturation" class="form-control" type="number" placeholder="-100 to 100"></input>
+			
 			<label for="gamma">Gamma</label>
 			<input id="gamma" class="form-control" type="number" placeholder=".01 to 10"></input>
+			
 			<label for="invert_lightness">Invert_lightness</label>
 			<select id="invert_lightness" class="form-control">
 				<option>false</option>
 				<option>true</option>
 			</select>
+			
 			<label for="visibility">Visibility</label>
 			<select id="visibility" class="form-control">
 				<option>on</option>
 				<option>off</option>
 				<option>simplified</option>				
 			</select>
+			
 			<label for="weight">Weight</label>
 			<input id="weight" class="form-control" type="number" placeholder="(an integer value, greater than or equal to zero)"></input>
+			
 			<button id="redraw" class="btn btn-default">redraw</button>
 			<button id="add_style" class="btn btn-default">Add Style</button>
-			<button id="copy_to_clipboard" class="btn btn-default">Copy Code to Clipboard</button>
+			<button id="copy_to_clipboard" class="btn btn-default">Console Log the Code</button>
 		</div>
 
 	</div> 
@@ -241,7 +254,6 @@
 			});
 
 		// User Interactions
-			drawMap();
 
 		    $('#redraw').click(drawMap);
 
@@ -324,52 +336,54 @@
 			});
 
 			$('#copy_to_clipboard').click(function(){
+				//  This intire Function is a template that is being logged to the console.
 				var code = `
-				<!-- Add script tags with the link to the google maps api with your api key here -->
-				<canvas id="map-canvas" width="500" height="500"></canvas>
+					<!-- Add script tags with the link to the google maps api with your api key here -->
+					<canvas id="map-canvas" width="500" height="500"></canvas>
 
-				var geocoder = new google.maps.Geocoder();
-				var mapCenter = {  lat: ` + mapOptions.center.lat + `, lng: ` + mapOptions.center.lng + ` };
-				var mapOptions = {
-					zoom: 18,				//Still need to figure out how to pull this in dynamicly
-					center: mapCenter,
-					mapTypeControlOptions: {
-						mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-					},
-					scrollwheel: false,
-				    mapTypeControl: false,
-				    streetViewControl: false
-				};
+					var geocoder = new google.maps.Geocoder();
+					var mapCenter = {  lat: ` + mapOptions.center.lat + `, lng: ` + mapOptions.center.lng + ` };
+					var mapOptions = {
+						zoom: 18,				//Still need to figure out how to pull this in dynamicly
+						center: mapCenter,
+						mapTypeControlOptions: {
+							mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+						},
+						scrollwheel: false,
+					    mapTypeControl: false,
+					    streetViewControl: false
+					};
 
-				var styles = ` + JSON.stringify( styles, null, 4 ) + `;
+					var styles = ` + JSON.stringify( styles, null, 4 ) + `;
 
 
-				function drawMap(){
+					function drawMap(){
 
-					// Create a new StyledMapType object, passing it the array of styles,
-					// as well as the name to be displayed on the map type control.
-					var styledMap = new google.maps.StyledMapType(styles, {name: "Your Custom Map!!"});
+						// Create a new StyledMapType object, passing it the array of styles,
+						// as well as the name to be displayed on the map type control.
+						var styledMap = new google.maps.StyledMapType(styles, {name: "Your Custom Map!!"});
 
-					// Render the map
-					var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);  // Change this to match your canvas id
+						// Render the map
+						var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);  // Change this to match your canvas id
 
-					map.mapTypes.set('map_style', styledMap); 	// Creates the id for styledMap
-					map.setMapTypeId('map_style');  			// Set the Map to be displayed
-					// Add the marker to our existing map
-					var marker = new google.maps.Marker({
-						position: mapCenter,
-						map: map,
-						title: "",
-						icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'// This is a link to an image, can be on any server 
-					});
-				}
+						map.mapTypes.set('map_style', styledMap); 	// Creates the id for styledMap
+						map.setMapTypeId('map_style');  			// Set the Map to be displayed
+						// Add the marker to our existing map
+						var marker = new google.maps.Marker({
+							position: mapCenter,
+							map: map,
+							title: "",
+							icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'// This is a link to an image, can be on any server 
+						});
+					}
 
-				drawMap();
+					drawMap();
 				`;
 
 				console.log( code );
 			});
 
+		drawMap();
 
 </script>
 
