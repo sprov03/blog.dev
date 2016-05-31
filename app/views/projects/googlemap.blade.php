@@ -68,11 +68,12 @@
 			
 			<?php
 				$mapFeatures = ['all','administrative','administrative.country','administrative.land_parcel','administrative.locality','administrative.neighborhood','administrative.province','landscape','landscape.man_made','landscape.natural','landscape.natural.landcover','landscape.natural.terrain','poi','poi.attraction','poi.business','poi.government','poi.medical','poi.park','poi.place_of_worship','poi.school','poi.sports_complex','road','road.arterial','road.highway','road.highway.controlled_access','road.local','transit','transit.line','transit.station','transit.station.airport','transit.station.bus','transit.station.rail','water'];
-				$mapElements = ['geometry','geometry.fill','geometry.stroke','labelslabels.icon','labels.text','labels.text.fill','labels.text.stroke'];
+				$mapElements = ['all','geometry','geometry.fill','geometry.stroke','labelslabels.icon','labels.text','labels.text.fill','labels.text.stroke'];
 			?>
 			
 			<label for-"map_feature">Map Feature</label>
 			<select id="map_feature" class="form-control">
+				<option disabled="disabled" selected>Select a Feature</option>
 				<?php foreach( $mapFeatures as $each ): ?>
 					<option><?php echo $each; ?></option>
 				<?php endforeach; ?>
@@ -80,6 +81,7 @@
 			
 			<label for="map_element">Map Element</label>
 			<select id="map_element" class="form-control">
+				<option disabled="disabled" selected>Select an Element</option>
 				<?php foreach( $mapElements as $each ): ?>
 					<option><?php echo $each; ?></option>
 				<?php endforeach; ?>
@@ -105,12 +107,14 @@
 			
 			<label for="invert_lightness">Invert_lightness</label>
 			<select id="invert_lightness" class="form-control">
+				<option disabled="disabled" selected>Select an option</option>
 				<option>false</option>
 				<option>true</option>
 			</select>
 			
 			<label for="visibility">Visibility</label>
 			<select id="visibility" class="form-control">
+				<option disabled="disabled" selected>Select an option</option>
 				<option>on</option>
 				<option>off</option>
 				<option>simplified</option>				
@@ -285,6 +289,7 @@
 		    	if ( $('#weight').val() ) newStyle.stylers.push({weight: $('#weight').val() });
 
 		    	var  style = doseExist( newStyle );// if exist returns the style object else returns false;
+		    	console.log( style );
 		    	if ( style ){
 	    			style = newStyle;
 		    	} else {
@@ -305,9 +310,8 @@
 		    		$(this).val(100);
 		    	}else if ( val < -100 ){
 		    		$(this).val(-100);
-		    	}else{
-		    		styles[0].stylers[0].hue = $(this).val();
 		    	}
+		    	
 		    });
 
 		    $('.color_picker_canvas').click(function(event){
